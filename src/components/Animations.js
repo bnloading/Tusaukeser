@@ -14,7 +14,7 @@ function Animations() {
         alt="balloon"
         style={{
           position: "fixed",
-          top: "90%",
+          top: "91%",
           right: "20px",
           width: "80px",
           height: "auto",

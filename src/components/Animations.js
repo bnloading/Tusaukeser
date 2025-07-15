@@ -4,7 +4,7 @@ function Animations() {
   return (
     <>
       <img
-        src="/images/bear.png"
+        src={process.env.PUBLIC_URL + "/images/bear.png"}
         alt="balloon"
         style={{
           position: "fixed",
@@ -17,7 +17,7 @@ function Animations() {
         }}
       />
       <img
-        src="/images/bear.png"
+        src={process.env.PUBLIC_URL + "/images/bear.png"}
         alt="teddy"
         style={{
           position: "fixed",

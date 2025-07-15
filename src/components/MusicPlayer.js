@@ -5,19 +5,26 @@ function MusicPlayer(props) {
   const audioRef = useRef(null);
   const [playing, setPlaying] = useState(false);
 
+  // Set initial time when component mounts
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.currentTime = 20; // Set initial time to 20 seconds
+      audioRef.current.currentTime = 21;
     }
   }, []);
+
+  // Handle audio loading
+  const handleCanPlay = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 21;
+    }
+  };
 
   const handlePlayPause = () => {
     if (audioRef.current) {
       if (playing) {
         audioRef.current.pause();
       } else {
-        // Set currentTime to 20 seconds when starting to play
-        audioRef.current.currentTime = 20;
+        audioRef.current.currentTime = 21; // Reset to 21 seconds when playing
         audioRef.current.play();
       }
       setPlaying(!playing);
@@ -113,7 +120,11 @@ function MusicPlayer(props) {
         </div>
       )}
 
-      <audio ref={audioRef} src={process.env.PUBLIC_URL + "/music/music.mp3"} />
+      <audio
+        ref={audioRef}
+        src={process.env.PUBLIC_URL + "/music/music.mp3"}
+        onCanPlay={handleCanPlay}
+      />
 
       {/* CSS Animation */}
       <style jsx>{`

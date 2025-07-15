@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+body {
+  background-color: #f29eaf;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -122,4 +124,83 @@
 .hero h1,
 .hero h2 {
   text-shadow: 0 2px 8px #fff;
+}
+
+@media (max-width: 430px) {
+  /* iPhone XR, XS, Android кіші экрандар */
+  .hero h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  .hero h2 {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+  .hero img {
+    width: 85vw;
+    max-width: 260px;
+    margin-top: 12px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 390px) {
+  /* iPhone SE, кіші Android */
+  .hero h1 {
+    font-size: 1.2rem;
+  }
+  .hero h2 {
+    font-size: 1rem;
+  }
+  .hero img {
+    max-width: 180px;
+  }
+}
+
+@media (min-width: 431px) and (max-width: 500px) {
+  /* iPhone 17, Pro, Plus */
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero h2 {
+    font-size: 1.3rem;
+  }
+  .hero img {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lottie-animation {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Add responsive styles for icons */
+@media (max-width: 480px) {
+  img[alt="balloon"],
+  img[alt="teddy"] {
+    width: 35px;
+  }
 }

@@ -1,15 +1,23 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Play, Pause, Music } from "lucide-react";
 
 function MusicPlayer(props) {
   const audioRef = useRef(null);
   const [playing, setPlaying] = useState(false);
 
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 20; // Set initial time to 20 seconds
+    }
+  }, []);
+
   const handlePlayPause = () => {
     if (audioRef.current) {
       if (playing) {
         audioRef.current.pause();
       } else {
+        // Set currentTime to 20 seconds when starting to play
+        audioRef.current.currentTime = 20;
         audioRef.current.play();
       }
       setPlaying(!playing);

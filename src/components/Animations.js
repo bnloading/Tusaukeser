@@ -1,16 +1,19 @@
 import React from "react";
 
 function Animations() {
-  // Add image preloading
+  // Add image preloading with error handling
   React.useEffect(() => {
     const img = new Image();
-    img.src = "/images/bear.png";
+    img.src = `${process.env.PUBLIC_URL || ""}/images/bear.png`;
+    img.onerror = (e) => console.error("Image failed to load:", e);
   }, []);
+
+  const imagePath = `${process.env.PUBLIC_URL || ""}/images/bear.png`;
 
   return (
     <>
       <img
-        src="/images/bear.png"
+        src={imagePath}
         alt="balloon"
         style={{
           position: "fixed",
@@ -23,9 +26,13 @@ function Animations() {
           objectFit: "contain",
         }}
         loading="eager"
+        onError={(e) => {
+          console.error("Image failed to load:", e);
+          e.target.style.display = "none";
+        }}
       />
       <img
-        src="/images/bear.png"
+        src={imagePath}
         alt="teddy"
         style={{
           position: "fixed",
@@ -38,6 +45,10 @@ function Animations() {
           objectFit: "contain",
         }}
         loading="eager"
+        onError={(e) => {
+          console.error("Image failed to load:", e);
+          e.target.style.display = "none";
+        }}
       />
     </>
   );
